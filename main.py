@@ -13,6 +13,7 @@ def make_reply(notebook):
         system=SYSTEM,
         messages=notebook,
     )
+    print(f"[tokens: in {response.usage.input_tokens}, out {response.usage.output_tokens}]")
     for block in response.content:
         if block.type == "text":
             return block.text
