@@ -37,6 +37,6 @@ Waiter: Sorry, no pizza here, just coffee, tea and croissants.
 
 - How to use API keys and connect Claude to my Python script
 - How to keep my API key secret with a `.env` file (and never commit it)
-- Why Claude and other LLMs don't remember previous messages: the app has to send the full chat history every time
+- Why LLMs are stateless: the model re-reads the whole conversation on every turn, so with the Messages API my app sends the full chat history with every request
 - Why developers use Git, and how GitHub works
 
