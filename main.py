@@ -37,8 +37,12 @@ while True:
     if text == "quit":
         break
     notebook.append({"role": "user", "content": text})  
-    print("Waiter: ", end="", flush=True)        # 1️⃣ сначала записать
-    reply = make_reply(notebook)                                 # 2️⃣ потом спросить Claude
+    print("Waiter: ", end="", flush=True) 
+    try:       # 1️⃣ сначала записать
+        reply = make_reply(notebook)   
+    except anthropic.APIConnectionError:
+        print("Sorry, no internet connection. Please try again!")
+        continue
     
     notebook.append({"role": "assistant", "content": reply})
 print("--- Notebook ---")
